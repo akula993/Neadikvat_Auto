@@ -1,38 +1,31 @@
-import pyautogui			
-# importtime
+import pyautogui	
+import keyboard as key  		
+
 #currentMouseX, currentMouseY = pyautogui.position ()
 #x = int(input('Введите первое значение X: '))#
 #y = int(input('Введите второе значение Y: '))#
 
-#x1 = int(input('Введите третие значение X: '))#
-#y1 = int(input('Введите четвертое значение Y: '))#
-import datetime
-import keyboard
 
-def check_state(cur_time=datetime.datetime.now()) -> None:
-    new_time = cur_time + datetime.timedelta(seconds=10)
-    print("Для продолжения нажмите Enter...")
-    while datetime.datetime.now() < new_time:
-        if keyboard.is_pressed('Enter'):
-            q = pyautogui.position ()
-            print(q)    
-    else:
-        print("timeout")
 
-check_state()
- 
-check_state()
-#q = pyautogui.position ()
-#print(q)
-#x1 = currentMouseX, currentMouseY
-#click1 = pyautogui.click(x1+100, duration=1)# Клик левой клавишой мышки
-#x2 = currentMouseX, currentMouseY
-#click2 = pyautogui.doubleclik(x2, duration=1)# Клик левой клавишой мышки# Клик правой клавишой мышки
-#from  tkinterimport *
+money = int(pyautogui.prompt (text = 'Веди количество: ', title = 'Веди количество: ', default = ''))
 
-#root = Tk()
-#root.title("Моя первая графическая программа на Python")
-#root.geometry("400x250")
-#root.resizable(width= False, height= False)
+start1 = pyautogui.prompt (text = 'Выберите кнопку для запуска', title = 'Выберите кнопку', default = '')# При нажатие на первую кнопку 
+pyautogui.alert (text = '2 клика', title = 'нажми Enter', button = 'OK')
+dans1 = pyautogui.position () # запоминаются 1 данные
+pyautogui.alert (text = 'перетаскивания с того места где была 1 точка', title = 'нажми Enter', button = 'OK')
+dans2 = pyautogui.position () # запоминаются 1 данные
+pyautogui.alert (text = '1 клик', title = 'жМи СуКа Enter', button = 'OK')
+dans3 = pyautogui.position () # запоминаются 1 данные
+pyautogui.alert (text = '1 клик', title = 'жМи СуКа Enter', button = 'OK')
+dans4 = pyautogui.position () # запоминаются 1 данные
 
-#root.mainloop()
+
+while True:
+	if key.is_pressed( start1 ):
+		 # создаем переменную money и присваиваем ей значение 10
+		while money > 0: # Запускаем цикл
+			pyautogui.doubleClick(dans1, duration= 1 )
+			pyautogui.dragTo(dans2, duration= 1)
+			pyautogui.click(dans3, duration= 1)
+			pyautogui.click(dans4, duration= 1)
+			money -= 1 # Все еще внутри цикла. Уменьшаем на один переменную money
