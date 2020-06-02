@@ -18,14 +18,17 @@ pyautogui.alert (text = '1 клик', title = 'жМи СуКа Enter', button = 
 dans3 = pyautogui.position () # запоминаются 1 данные
 pyautogui.alert (text = '1 клик', title = 'жМи СуКа Enter', button = 'OK')
 dans4 = pyautogui.position () # запоминаются 1 данные
-
+stop1 = pyautogui.prompt (text = 'Выберите кнопку для остановки', title = 'Выберите кнопку', default = '')# При нажатие на первую кнопку
 
 while True:
 	if key.is_pressed( start1 ):
 		 # создаем переменную money и присваиваем ей значение 10
-		while money > 0: # Запускаем цикл
-			pyautogui.doubleClick(dans1, duration= 1 )
+                while money > 0 or stop1: # Запускаем цикл
+
+                        pyautogui.doubleClick(dans1, duration= 1 )
 			pyautogui.dragTo(dans2, duration= 1)
 			pyautogui.click(dans3, duration= 1)
 			pyautogui.click(dans4, duration= 1)
 			money -= 1 # Все еще внутри цикла. Уменьшаем на один переменную money
+        else key.is_pressed( stop1):
+            
